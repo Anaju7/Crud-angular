@@ -15,7 +15,7 @@ export class CourseServices {
         return COURSES;
     }
 
-    retrieveById(id: number): Course {
+    retrieveById(id: number): any {
         return COURSES.find((courseItereator: Course) => courseItereator.id === id);
     }
 
@@ -23,11 +23,11 @@ export class CourseServices {
         if(course.id) { 
             const index = COURSES.findIndex((courseItereator: Course) => courseItereator.id === course.id);
             COURSES[index] = course;
-            // return this.httpClient.put<Course>(`${this.coursesUrl}/${course.id}`, course);
+            return this.httpClient.put<Course>(`${this.coursesUrl}/${course.id}`, course);
         }
-        //  else { 
-        //     return this.httpClient.post<Course>(`${this.coursesUrl}`, course);
-        // }
+         else { 
+            return this.httpClient.post<Course>(`${this.coursesUrl}`, course);
+        }
     }
 }
 

@@ -9,11 +9,11 @@ export class CourseListComponent implements OnInit {
 
     filteredCourses: Course[] = [];
 
-    _filterBy: string;
+    _filterBy: string = "";
 
     _courses: Course[] = [];
 
-    constructor(private courseService: CourseServices ) { }
+    constructor(private courseService: CourseServices) { }
 
     ngOnInit(): void {
         this._courses = this.courseService.retrieveAll();
